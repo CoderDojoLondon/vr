@@ -18,8 +18,8 @@ if (app.get('env') != 'production')
 		':method :url :res[content-length] :response-time ms'
 	))
 
-// Start server on port 3000
-server.listen(3000, 'localhost', () => console.log(
+// Start server on port 3000 or system variable PORT
+server.listen(process.env.PORT || 3000, 'localhost', () => console.log(
 	'VR server listening on http://%s:%s',
 	server.address().address,
 	server.address().port
