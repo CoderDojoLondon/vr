@@ -64,6 +64,32 @@ var load = function(data) {
 	}
 };
 
+// See: https://stackoverflow.com/questions/486896/adding-a-parameter-to-the-url-with-javascript
+function insertParam(key, value)
+{
+    var key = encodeURIComponent(key);
+		var value = encodeURIComponent(value);
+
+    var kvp = document.location.search.substr(1).split('&');
+
+    var i=kvp.length; var x; while(i--)
+    {
+        x = kvp[i].split('=');
+
+        if (x[0]==key)
+        {
+            x[1] = value;
+            kvp[i] = x.join('=');
+            break;
+        }
+    }
+
+    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+
+    //this will reload the page, it's likely better to store this until finished
+    document.location.search = kvp.join('&');
+}
+
 $(function() {
 	// Variable to store GET parameters in the URL
 	var params = {};
@@ -75,14 +101,24 @@ $(function() {
 
 	// If code has been given as a parameter use this
 	if ('q' in params) load(params['q'])
-
 	// Otherwise obtain code from socket connection to editor
 	else {
 		// Set fullscreen to true
 		fullscreen = true;
 
-		// Ask the user for the editor ID
-		var editorID = prompt('Enter the editor ID:')
+		var editorID;
+		// If the editor ID has already been entered
+		if ('editorid' in params) editorID = params['editorid']
+		else {
+			// Ask the user for the editor ID
+			editorID = prompt('Enter the editor ID:')
+				// Remove whitespace and makes it lowercase for convenience especailly one phones
+				.trim().toLowerCase()
+			// TODO: Make this work better
+			insertParam('editorid', editorID)
+		}
+
+
 
 		// Initialise the socket connection after asking for ID to ensure we hear the connect event
 		var socket = io.connect();
