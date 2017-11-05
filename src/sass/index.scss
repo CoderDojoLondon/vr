@@ -56,6 +56,22 @@ article {
 	&.active {
 		display: flex;
 	}
+
+	&.fullscreen {
+		padding: 0 20vw;
+		width: 100vw;
+
+		fieldset {
+			position: absolute;
+
+			bottom: 5vh;
+			right: 20vw;
+		}
+	}
+}
+
+code {
+	user-select: text;
 }
 
 a {

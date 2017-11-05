@@ -32,41 +32,63 @@ $(function() {
 		});
 	});
 
+	var activateArticle = function(article) {
+		// If there isn't an article to activate return false
+		if(!article.length) return false
+
+		// Execute the code
+		article.addClass('active')
+			.find('a.execute').click()
+
+		if (article.hasClass('fullscreen'))
+			$('.preview').hide()
+		else
+			$('.preview').show()
+
+		// Update window hash for anchor
+		window.location.hash = article.attr('id');
+
+		// Indicate success
+		return true
+	};
+
+	var changeArticle = function(from, to) {
+		var parent = $(from)
+			.parents('article').removeClass('active');
+
+		if (to === 'next')
+			to = parent.next()
+		else if(to === 'prev')
+			to = parent.prev()
+
+		// Activate the article
+		activateArticle(to)
+	};
+
 	// Next button click event
 	$('a.next').click(function(e) {
 		e.preventDefault();
 
-		// Update window hash for anchor
-		window.location.hash = $(this)
-			.parents().eq(2).removeClass('active')
-			.next().addClass('active')
-			.find('a.execute').click().closest('article').attr('id');
+		changeArticle($(this), 'next')
 	});
 
 	// Previous button click event
 	$('a.previous').click(function(e) {
 		e.preventDefault();
 
-		// Update window hash for anchor
-		window.location.hash = $(this)
-			.parents().eq(2).removeClass('active')
-			.prev().addClass('active')
-			.find('a.execute').click().closest('article').attr('id');
+		changeArticle($(this), 'prev')
 	});
 
-	// If window.location.hash not  no article with that ID use first tutorial
+	// If window.location.hash not set or no article with that ID use first tutorial
 	if (
 		!window.location.hash ||
-		!$('section article' + window.location.hash).addClass('active').length
+		!activateArticle($('section article' + window.location.hash))
 	)
-		$('section article').first().addClass('active');
+		activateArticle($('section article').first());
 
-	// Activate the first tutorial section and disable appropiate buttons
+	// Disable appropiate buttons from first and last tutorial
 	$('section article').first().find('a.previous').addClass('disabled');
 	$('section article').last().find('a.next').addClass('disabled');
-
-	// Execute the currently visible code on startup
-	$('a.execute').first().click();
 
 	// Pick a random ID of 5 characters
 	var id = Math.random().toString(36).slice(-5);
