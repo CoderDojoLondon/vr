@@ -169,7 +169,7 @@ div.code {
 	border-radius: 5px;
 
 	fieldset { position: relative; }
-	div.CodeMirror { height: initial; }
+	div.CodeMirror { height: initial; * { user-select: all } }
 }
 
 iframe {
