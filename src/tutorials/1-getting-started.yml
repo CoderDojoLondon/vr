@@ -31,3 +31,13 @@ sections:
       <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
     code: |-
       <a-box position="0 0 -3" rotation="45 45 0" color="orange"></a-box>
+  - subtitle: Making things big and small
+    instruction: >-
+      Try to work out what <b>each number in <code>scale="1 1 1"</code> means</b>
+      then try to make two boxes <b>one big box</b> and <b>another really small</b>.<br>
+      <b>Hint:</b> Only change one number at a time.
+    before: >-
+      <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
+    code: |-
+      <a-box position="-1 0 -3" rotation="45 45 0" scale="1 1 1" color="orange"></a-box>
+      <a-box position="1 0 -3" rotation="45 45 0" scale="1 1 1" color="orange"></a-box>

@@ -4,7 +4,7 @@ sections:
   - subtitle: How the game is going to work
     text: >-
       In the next tutorials we're going to take what we've done and make a simple game.<br>
-      First we need to workout what we're going to do in the game.<br>
+      First we need to workout what we're going to do in it.<br>
       We'll have a cube that will start in a <b>random position</b> and then
       it will <b>fly towards the camera</b>. The player then needs to <b>look at</b>
       and <b>click on</b> the box to destroy it <b>before it hits us</b>.<br><br>
@@ -30,7 +30,7 @@ sections:
       </a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera>
   - subtitle: Make some exciting different shapes.
     instruction: >-
-      Here's all your code. I've made the box start in a random position earch game.
+      Here's all your code. I've made the box start in a random position each game.
       Try changing the box to a <code>ring</code>, <code>torus</code> or <code>dodecahedron</code>!<br>
       <b>Don't forget to check this out on your VR headset!</b>
     before:
