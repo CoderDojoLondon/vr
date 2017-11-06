@@ -1,10 +1,23 @@
 title: Making the game
 
 sections:
+  - subtitle: How the game is going to work
+    text: >-
+      In the next tutorials we're going to take what we've done and make a simple game.<br>
+      First we need to workout what we're going to do in the game.<br>
+      We'll have a cube that will start in a <b>random position</b> and then
+      it will <b>fly towards the camera</b>. The player then needs to <b>look at</b>
+      and <b>click on</b> the box to destroy it <b>before it hits us</b>.<br><br>
+      To keep things simple <b>we've added a bit of code</b> that will tell the player
+      they have <b>lost if they are hit by the box</b> and <b>that they have won if the box
+      has disappeared</b>. Whenever you see <br><code>&#60;a-box <b>invader</b> ...&#62;&#60;/a-box&#62;</code>,
+      that means we've added some code to help.
   - subtitle: Move the box towards the camera.
     instruction: >-
+      Let's make the part of the game that makes the box <b>fly towards the camera</b>.<br>
       I've put the box a bit further away from the camera.
       Can you make one more animation that moves it closer?
+      <b>Hint:</b> Copy and paste one of the other animations and then change it's attributes.<br>
       See what happens when the box hits you!
     before: >-
       <a-box invader position="0 0 -20" rotation="0 0 0" color="orange">
@@ -18,7 +31,8 @@ sections:
   - subtitle: Make some exciting different shapes.
     instruction: >-
       Here's all your code. I've made the box start in a random position earch game.
-      Try changing the box to a <code>ring</code>, <code>torus</code> or <code>dodecahedron</code>!
+      Try changing the box to a <code>ring</code>, <code>torus</code> or <code>dodecahedron</code>!<br>
+      <b>Don't forget to check this out on your VR headset!</b>
     before:
     code: |-
       <a-box invader random-position="min: -50 -50 -50; max: 50 50 50" rotation="0 0 0" color="orange">

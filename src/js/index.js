@@ -32,6 +32,20 @@ $(function() {
 		});
 	});
 
+
+	// See introduction tutorial
+	$('span.replaceWithHost').text(window.location.host)
+
+	$(document).keydown(function(e){
+		// Only if done in the body i.e. not textboxes
+		if($(e.target).is('body')) {
+			if (e.keyCode==39)
+				changeArticle($('article.active'), 'next')
+			else if (e.keyCode==37)
+				changeArticle($('article.active'), 'prev')
+		}
+	});
+
 	var activateArticle = function(article) {
 		// If there isn't an article to activate return false
 		if(!article.length) return false
@@ -53,30 +67,32 @@ $(function() {
 	};
 
 	var changeArticle = function(from, to) {
-		var parent = $(from)
-			.parents('article').removeClass('active');
-
 		if (to === 'next')
-			to = parent.next()
+			to = from.next()
 		else if(to === 'prev')
-			to = parent.prev()
+			to = from.prev()
 
 		// Activate the article
-		activateArticle(to)
+		if (to.length) {
+			from.removeClass('active')
+			activateArticle(to)
+		}
+		// There is no valid article to activate
+		else return false
 	};
 
 	// Next button click event
 	$('a.next').click(function(e) {
 		e.preventDefault();
 
-		changeArticle($(this), 'next')
+		changeArticle($(this).parents('article'), 'next')
 	});
 
 	// Previous button click event
 	$('a.previous').click(function(e) {
 		e.preventDefault();
 
-		changeArticle($(this), 'prev')
+		changeArticle($(this).parents('article'), 'prev')
 	});
 
 	// If window.location.hash not set or no article with that ID use first tutorial

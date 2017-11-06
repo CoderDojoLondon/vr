@@ -74,7 +74,21 @@ code {
 	user-select: text;
 }
 
-a {
+p  a {
+	color: $primary;
+
+	text-decoration: none;
+
+	font-weight: bold;
+
+	transition: color 200ms linear;
+
+	&:hover {
+		color: darken($primary, 10);
+	}
+}
+
+fieldset > a {
 	position: relative;
 	overflow: hidden;
 

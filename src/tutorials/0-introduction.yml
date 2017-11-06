@@ -23,10 +23,11 @@ sections:
     instruction: >-
       When you've made something interesting you can see it in the right hand side box
       and you can <b>click and drag</b> on it to pan around.<br>
-      While this is useful when debugging it isn't really VR. That's why we've created
-      a system to view it on a phone or other webVR compatable device.<br>
-      See those characters in the bottom right? Open your device and go to
-      <code>http://192.168.0.10/preview</code> and type in those characters.<br>
+      While this is useful for debugging, it isn't really VR. That's why we've created
+      a system to <b>view it on a phone</b> or other webVR compatable device.<br>
+      See those characters in the <b>bottom right</b>? Open your device and go to
+      <code><a href="/preview" target="_blank">http://<span class="replaceWithHost"></span>/preview</code></a>
+      and type in those characters.<br>
 
       Now you should your code on the device.
     before: >-

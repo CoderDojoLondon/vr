@@ -1,0 +1,19 @@
+title: What next
+
+sections:
+  - subtitle: We're still working on making more tutorials
+    text: >-
+      This website has been made by volenteers at Coderdojo London and it is entirely
+      open source. You can even see the code at
+      <a target="_blank" href="https://github.com/CoderDojoLondon/vr">https://github.com/CoderDojoLondon/vr</a>.<br>
+      We'd love your help on how to make improvements and we warmly accept any
+      suggestions with what we can do to improve.<br>
+      Also we would really like you to say <b>if you experienced any problems</b> by
+      <a target="_blank" href="https://github.com/CoderDojoLondon/vr/issues/new">opening an issue</a>.
+  - subtitle: In the meantime
+    text: >-
+      While you wait for more awesome tutorials on this website why don't you checkout
+      the offical <a target="_blank" href="https://aframe.io">A-Frame website</a>.<br>
+      You might notice that we have hidden some extra code you need to get started
+      but don't worry! You can download some <a target="_blank" href="https://github.com/aframevr/aframe-boilerplate">boilerplate code</a>
+      to get yourself started.
