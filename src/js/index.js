@@ -38,6 +38,10 @@ $(function() {
 
 	// See introduction tutorial
 	$('span.replaceWithHost').text(window.location.host)
+	$('span.hostQR').each(function(i, el) {
+		new QRCode(el, 'http://' + window.location.host + '/preview')
+	})
+	//
 
 	$(document).keydown(function(e){
 		// Only if done in the body i.e. not textboxes

@@ -68,6 +68,13 @@ article {
 			right: 20vw;
 		}
 	}
+
+	// For the inline QR code
+	.hostQR {
+		float: right;
+
+		img { width: 15vw; }
+	}
 }
 
 code {

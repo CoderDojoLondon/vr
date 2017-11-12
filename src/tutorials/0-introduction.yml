@@ -13,7 +13,7 @@ sections:
       When you make a change you can press the <code>execute</code> button and
       <b>see the result on the right</b>.<br>
       Let's get something on the screen, <b>copy and paste</b> this code into the box.<br>
-      <code class="orange">&#60;a-box position="0 0 -3" rotation="45 45 0" color="purple"&#62;&#60;/a-box&#62;</code><br>
+      <b><code>&#60;a-box position="0 0 -3" rotation="45 45 0" color="purple"&#62;&#60;/a-box&#62;</code></b><br>
       Don't forget to hit the execute button!
     before: >-
       <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
@@ -21,14 +21,14 @@ sections:
       Delete this and replace it with your own code!
   - subtitle: Viewing the result
     instruction: >-
+      <span class="hostQR"></span>
       When you've made something interesting you can see it in the right hand side box
       and you can <b>click and drag</b> on it to pan around.<br>
       While this is useful for debugging, it isn't really VR. That's why we've created
       a way to <b>view it on a phone</b> or other webVR compatable device.<br>
       See those characters in the <b>bottom right</b>? Open your device and go to
-      <code><a href="/preview" target="_blank">http://<span class="replaceWithHost"></span>/preview</code></a>
+      <code><a href="/preview" target="_blank">http://<span class="replaceWithHost"></span>/preview</a></code>
       and type in those characters.<br>
-
       Now you should see your code on the device.
     before: >-
       <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>

@@ -44,16 +44,18 @@
 			<span class="peer"></span>
 		</section>
 
+		<script src="js/jquery.min.js"></script>
+		<script src="js/index.min.js"></script>
+
+		<script async src="js/lz-string.min.js"></script>
+		<script async src="js/socket.io.min.js"></script>
+		<script async src="js/qrcode.min.js"></script>
+
 		<script src="js/codemirror.min.js"></script>
+
 		<script src="js/codemirror.autorefresh.min.js"></script>
 		<script src="js/codemirror.xml.min.js"></script>
 		<script src="js/codemirror.javascript.min.js"></script>
-
-		<script src="js/lz-string.min.js"></script>
-		<script src="js/socket.io.min.js"></script>
-
-		<script src="js/jquery.min.js"></script>
-		<script async src="js/index.min.js"></script>
 
 		<noscript id="deferred-load">
 			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -63,17 +65,17 @@
 			<link rel="stylesheet" href="css/theme.min.css">
 		</noscript>
 		<script>
-			var loadDeferredStyles = function() {
-				var addStylesNode = document.getElementById("deferred-load");
+			var deferredLoad = function() {
+				var deferredLoadNode = document.getElementById("deferred-load");
 				var replacement = document.createElement("div");
-				replacement.innerHTML = addStylesNode.textContent;
+				replacement.innerHTML = deferredLoadNode.textContent;
 				document.body.appendChild(replacement)
-				addStylesNode.parentElement.removeChild(addStylesNode);
+				deferredLoadNode.parentElement.removeChild(deferredLoadNode);
 			};
 			var raf = requestAnimationFrame || mozRequestAnimationFrame ||
 			webkitRequestAnimationFrame || msRequestAnimationFrame;
-			if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-			else window.addEventListener('load', loadDeferredStyles);
+			if (raf) raf(function() { window.setTimeout(deferredLoad, 0); });
+			else window.addEventListener('load', deferredLoad);
 		</script>
 	</body>
 </html>
