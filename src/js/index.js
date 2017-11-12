@@ -20,7 +20,9 @@ $(function() {
 		)
 
 		// Update the preview frame with the compressed code
-		$('iframe').get(0).contentWindow.location.reload()
+		var frame = $('iframe').get(0);
+
+		frame.src = frame.src;
 	});
 
 	// Setup textarea with CodeMirror

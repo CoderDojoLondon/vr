@@ -24,14 +24,24 @@ server.listen(process.env.PORT || 3000, 'localhost', () => console.log(
 	server.address().address,
 	server.address().port
 ))
+// Cache for 1 hr in production
+if (app.get('env') === 'production')
+	var setHeaders = res => res.setHeader('Cache-Control', 'must-revalidate, max-age=3600')
+// Cache for 30 seconds in development
+else
+	var setHeaders = res => res.setHeader('Cache-Control', 'must-revalidate, max-age=30')
 
 // Serve static files on server
-app.use(express.static('build'))
-app.use(express.static('lib'))
+app.use(express.static('build', { setHeaders }))
+app.use(express.static('lib', { setHeaders }))
 
 // Handle GET requests for index and preview pages
 app.get('/', (_, res) => res.sendFile(__dirname + '/build/html/index.html'))
-app.get('/preview', (_, res) => res.sendFile(__dirname + '/build/html/preview.html'))
+app.get('/preview', (_, res) => {
+	// Cache for 5 minutes
+	res.setHeader('Cache-Control', 'must-revalidate, max-age=600')
+	res.sendFile(__dirname + '/build/html/preview.html')
+})
 
 io.on('connection', socket => {
 	// Register editor and get it to join the room with it's editor ID

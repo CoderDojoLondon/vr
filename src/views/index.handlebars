@@ -4,12 +4,6 @@
 		<title>VR Tutorial</title>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:500,700,800,900|Roboto+Mono">
-
-		<link rel="stylesheet" href="css/codemirror.min.css">
-		<link rel="stylesheet" href="css/theme.min.css">
-
 		<link rel="stylesheet" href="css/index.min.css">
 	</head>
 
@@ -59,6 +53,27 @@
 		<script src="js/socket.io.min.js"></script>
 
 		<script src="js/jquery.min.js"></script>
-		<script src="js/index.min.js"></script>
+		<script async src="js/index.min.js"></script>
+
+		<noscript id="deferred-load">
+			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:500,700,800,900|Roboto+Mono">
+
+			<link rel="stylesheet" href="css/codemirror.min.css">
+			<link rel="stylesheet" href="css/theme.min.css">
+		</noscript>
+		<script>
+			var loadDeferredStyles = function() {
+				var addStylesNode = document.getElementById("deferred-load");
+				var replacement = document.createElement("div");
+				replacement.innerHTML = addStylesNode.textContent;
+				document.body.appendChild(replacement)
+				addStylesNode.parentElement.removeChild(addStylesNode);
+			};
+			var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+			webkitRequestAnimationFrame || msRequestAnimationFrame;
+			if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+			else window.addEventListener('load', loadDeferredStyles);
+		</script>
 	</body>
 </html>
