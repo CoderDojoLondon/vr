@@ -4,9 +4,10 @@
 
 'use strict';
 
-$(function() {
-	var code;
+// This is access by the preview IFrame when it is ready to get code
+var code;
 
+$(function() {
 	// Handle click on execute button
 	$('a.execute').click(function(e) {
 		e.preventDefault();
@@ -19,7 +20,7 @@ $(function() {
 		)
 
 		// Update the preview frame with the compressed code
-		$('iframe').attr('src', 'preview?q=' + code);
+		$('iframe').get(0).contentWindow.location.reload()
 	});
 
 	// Setup textarea with CodeMirror

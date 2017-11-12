@@ -39,18 +39,16 @@ AFRAME.registerComponent('invader', {
 var fullscreen = false;
 
 var load = function(data) {
-	// Remove any previous a-scene element
-	$('a-scene').remove();
 
-	// Create the new a-scene element with decompressed code and prepend to body
-	$('<a-scene ' +
+	// Create a new a-scene element
+	var scene = $('<a-scene ' +
 		'wasd-controls="enabled: false" ' +
 		'vr-mode-ui="enabled: ' + fullscreen.toString() +
-	'"></a-scene')
-		.html($('<a-entity></a-entity>').html(
-			LZString.decompressFromEncodedURIComponent(data)
-		))
-		.prependTo('body');
+		'"></a-scene').prependTo('body')
+			// Decompress code and prepend to body
+			.html($('<a-entity></a-entity>').html(
+				LZString.decompressFromEncodedURIComponent(data)
+			));
 
 	// If fullscreen mode require double click before execution begins
 	if (fullscreen) {
@@ -99,9 +97,11 @@ $(function() {
 		params[param.split('=')[0]] = param.split('=')[1]
 	});
 
-	// If code has been given as a parameter use this
-	if ('q' in params) load(params['q'])
-	// Otherwise obtain code from socket connection to editor
+	// If the preview page is in an iframe
+	if ('frame' in params)
+		// Access the parent's code variable and load it (only works since same origin)
+		load(window.parent.code)
+	// Otherwise obtain code from socket connection to editor used in device mode
 	else {
 		// Set fullscreen to true
 		fullscreen = true;
@@ -112,13 +112,11 @@ $(function() {
 		else {
 			// Ask the user for the editor ID
 			editorID = prompt('Enter the editor ID:')
-				// Remove whitespace and makes it lowercase for convenience especailly one phones
+				// Remove whitespace and makes it lowercase for convenience especially on phones
 				.trim().toLowerCase()
 			// TODO: Make this work better
 			insertParam('editorid', editorID)
 		}
-
-
 
 		// Initialise the socket connection after asking for ID to ensure we hear the connect event
 		var socket = io.connect();
