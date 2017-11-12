@@ -15,6 +15,8 @@ const glob = require('glob')
 const yaml = require('js-yaml')
 const handlebars = require('gulp-hb')
 
+const babel = require('gulp-babel');
+
 // Compile SASS files into CSS
 // Also autoprefix, compress and add .min extension
 gulp.task('sass', () => {
@@ -28,6 +30,9 @@ gulp.task('sass', () => {
 // Minimise JS files and add .min extension
 gulp.task('js', () => {
 	return gulp.src('./src/js/*.js')
+		.pipe(babel({
+			presets: ['babel-preset-env']
+		}))
 		.pipe(uglify())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('./build/js'))
