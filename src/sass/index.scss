@@ -59,12 +59,13 @@ article {
 
 	&.fullscreen {
 		padding: 0 20vw;
+		padding-bottom: 15vh;
 		width: 100vw;
 
 		fieldset {
-			position: absolute;
+			position: fixed;
 
-			bottom: 5vh;
+			bottom: 2.5vh;
 			right: 20vw;
 		}
 	}
