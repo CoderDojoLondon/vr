@@ -18,7 +18,7 @@
 				{{# if instruction}}
 					<p>{{{ instruction }}}</p>
 					<div class="code">
-						<textarea data-mode="xml" hidden>{{{ code }}}</textarea>
+						<textarea placeholder="Your code goes here..." data-mode="xml" hidden>{{{ code }}}</textarea>
 						<textarea class="before" hidden>{{{ before }}}</textarea>
 						<textarea class="after" hidden>{{{ after }}}</textarea>
 						<fieldset>
@@ -56,6 +56,7 @@
 		<script src="js/codemirror.autorefresh.min.js"></script>
 		<script src="js/codemirror.xml.min.js"></script>
 		<script src="js/codemirror.javascript.min.js"></script>
+		<script src="js/codemirror.placeholder.min.js"></script>
 
 		<noscript id="deferred-load">
 			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

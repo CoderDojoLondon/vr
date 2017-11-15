@@ -17,8 +17,6 @@ sections:
       Don't forget to hit the execute button!
     before: >-
       <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
-    code: |-
-      Delete this and replace it with your own code!
   - subtitle: Viewing the result
     instruction: >-
       <span class="hostQR"></span>
