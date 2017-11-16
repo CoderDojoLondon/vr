@@ -7,7 +7,9 @@ This is still work in progress and there are numerous flaws that need to be addr
 
 # How it works
 
-**Note:** you must have node and npm installed.
+**Note:** you must have [node](https://nodejs.org/) and npm (this should come with node) installed. We're using the LTS version of node and the latest of npm (once you have installed node type `npm install -g npm@latest` to update it)
+
+Once you have node and npm you can run the command `npm i` in the root directory of the source code and it should install all the packages (this can take a while).
 
 We primarily edit the files in the folder `src/`. In that folder you will find 4 others called:
 - js
