@@ -12,8 +12,8 @@ sections:
       You can type in the box below.<br>
       When you make a change you can press the <code>execute</code> button and
       <b>see the result on the right</b>.<br>
-      Let's get something on the screen, <b>copy and paste</b> this code into the box.<br>
-      <code class="orange">&#60;a-box position="0 0 -3" rotation="45 45 0" color="purple"&#62;&#60;/a-box&#62;</code><br>
+      Let's get something on the screen, <b>copy and paste</b> this code into the box.<br><br>
+      <code class="example">&#60;a-box position="0 0 -3" rotation="45 45 0" color="purple"&#62;&#60;/a-box&#62;</code><br>
       Don't forget to hit the execute button!
     before: >-
       <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>

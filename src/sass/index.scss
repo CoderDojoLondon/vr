@@ -63,15 +63,19 @@ article {
 
 		fieldset {
 			position: absolute;
-
 			bottom: 5vh;
 			right: 20vw;
 		}
 	}
 }
 
-code {
+.example {
+	display: block;
+	padding: 1.3vw 1.6vw;
+	width: 100%;
 	user-select: text;
+	border-radius: 5px;
+	background-color: #EFF0F1;
 }
 
 p  a {
