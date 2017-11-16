@@ -64,14 +64,14 @@ gulp.task('handlebars', callback => {
 
 // For live mode, watch for updates
 gulp.task('watch', () => {
-	gulp.watch('./src/sass/*.scss', ['sass'])
-	gulp.watch('./src/js/*.js', ['js'])
+	gulp.watch('./src/sass/*.scss', gulp.series('sass'))
+	gulp.watch('./src/js/*.js', gulp.series('js'))
 	gulp.watch([
 		'./src/views/*.handlebars',
 		'./src/views/helpers/*.js',
 		'./src/tutorials/*.yml'
-	], ['handlebars'])
+	], gulp.series('handlebars'))
 })
 
-gulp.task('default', ['sass', 'js', 'handlebars'])
-gulp.task('live', ['default', 'watch'])
+gulp.task('default', gulp.parallel('sass', 'js', 'handlebars'))
+gulp.task('live', gulp.series('default', 'watch'))
