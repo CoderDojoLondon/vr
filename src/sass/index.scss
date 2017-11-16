@@ -59,13 +59,22 @@ article {
 
 	&.fullscreen {
 		padding: 0 20vw;
+		padding-bottom: 15vh;
 		width: 100vw;
 
 		fieldset {
-			position: absolute;
-			bottom: 5vh;
+			position: fixed;
+
+			bottom: 2.5vh;
 			right: 20vw;
 		}
+	}
+
+	// For the inline QR code
+	.hostQR {
+		float: right;
+
+		img { width: 15vw; }
 	}
 }
 
