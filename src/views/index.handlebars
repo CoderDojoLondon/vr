@@ -17,6 +17,7 @@
 
 				{{# if instruction}}
 					<p>{{{ instruction }}}</p>
+					{{# if example}}<code class="example">{{ example }}</code>{{/ if}}
 					<div class="code">
 						<textarea placeholder="Your code goes here..." data-mode="xml" hidden>{{{ code }}}</textarea>
 						<textarea class="before" hidden>{{{ before }}}</textarea>
