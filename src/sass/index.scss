@@ -40,6 +40,15 @@ section {
 	}
 }
 
+.example {
+	display: block;
+	padding: 1.3vw 1.6vw;
+	width: 100%;
+	user-select: text;
+	border-radius: 5px;
+	background-color: #EFF0F1;
+}
+
 article {
 	display: none;
 	flex-direction: column;
