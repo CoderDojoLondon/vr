@@ -9,6 +9,10 @@ const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 
+// Automatic set of security policies
+const helmet = require('helmet')
+app.use(helmet())
+
 const morgan = require('morgan')
 
 // Enable request logging in production mode
