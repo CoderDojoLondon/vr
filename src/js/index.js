@@ -38,10 +38,6 @@ $(function() {
 
 	// See introduction tutorial
 	$('span.replaceWithHost').text(window.location.host)
-	$('span.hostQR').each(function(i, el) {
-		new QRCode(el, 'http://' + window.location.host + '/preview')
-	})
-	//
 
 	$(document).keydown(function(e){
 		// Only if done in the body i.e. not textboxes
@@ -112,7 +108,15 @@ $(function() {
 	// Disable appropiate buttons from first and last tutorial
 	$('section article').first().find('a.previous').addClass('disabled');
 	$('section article').last().find('a.next').addClass('disabled');
+});
 
+function qrLoad() {
+	$('span.hostQR').each(function(i, el) {
+		new QRCode(el, 'http://' + window.location.host + '/preview')
+	})
+}
+
+function socketLoad() {
 	// Pick a random ID of 5 characters
 	var id = Math.random().toString(36).slice(-5);
 
@@ -132,4 +136,4 @@ $(function() {
 		// Send the push event with the compressed code
 		socket.emit('push', viewer, code);
 	});
-});
+}
